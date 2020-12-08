@@ -17,6 +17,7 @@ struct EmojiMemoryGameView: View {
                         self.viewModel.choose(card: card)
                     }
                 }
+                .font(viewModel.cards.count < 9 ? .largeTitle : .body)
             }
             .padding(.horizontal)
         }
@@ -33,7 +34,6 @@ struct ContentView_Previews: PreviewProvider {
 
 struct CardView: View {
     var card : MemoryGame<String>.Card
-//    var index = emojisNumber
     @State private var viewState = CGSize.zero
     var body: some View {
         ZStack {
@@ -44,7 +44,6 @@ struct CardView: View {
                 .stroke(Color.orange, lineWidth: 3)
             
                 Text(card.content)
-//                    .font(self.index == 5 ? .system(size: 30) : .largeTitle)
                 .padding()
             } else{
                 RoundedRectangle(cornerRadius: 10)
