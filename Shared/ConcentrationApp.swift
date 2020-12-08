@@ -11,7 +11,13 @@ import SwiftUI
 struct ConcentrationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(iOS)
+            EmojiMemoryGameView()
+            #else
+            EmojiMemoryGameView()
+                .frame(minWidth: 320, minHeight: 320)
+            #endif
+            
         }
     }
 }
